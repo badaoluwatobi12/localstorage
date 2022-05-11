@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <input type="text" placeholder="input firstname" id="fnam">
+    <input type="text" placeholder="input lastname" id="lnam"><br/>
+    <button onclick="sen()" >send</button>
+    <div>
+        <button onclick="lis()" >list details </button>
+    </div>
+    <div  id="demo">
+        <ol>
+
+        </ol>
+    </div>
+<script>
+
+     
+       
+
+function sen()  {
+var arr=[];
+ var obj={
+     firstname:fnam.value,
+     lastname:lnam.value,
+   
+ };
+ arr.push(obj);
+ 
+     var conv=JSON.stringify(arr);
+localStorage.store=conv;
+ 
+
+}
+
+function lis() {
+      var yy = localStorage.getItem("store");
+      var conv = JSON.parse(yy);
+      alert(conv[0].firstname);
+      demo.innerHTML+='<li>'+conv[0].lastname +'</li>';     
+}
+          
+      
+
+
+
+
+    //    for (i=0; i<10; i++){
+    //        console.log(i)
+    //    }
+
+</script>
+
+
+</body>
+</html>
